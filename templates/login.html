@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/static/css/style.css" />
+        <script src="/static/js/htmx.js" defer></script>
+        <script src="/static/js/script.js" defer></script>
+        <title>Login</title>
+    </head>
+    <body>
+        <div id="view-frame">
+            <div id="login-frame">
+                <form
+                    class="controls"
+                    hx-post="/login"
+                    hx-swap="outerHTML"
+                    hx-indicator="#loading"
+                >
+                    <div class="form-control form-username">
+                        <input type="text" name="username" placeholder="username" required />
+                    </div>
+                    <div class="form-control form-password">
+                        <input type="password" name="password" placeholder="password" required />
+                    </div>
+                    <div class="form-control form-submit">
+                        <button class="control-submit" type="submit">↵</button>
+                    </div>
+                </form>
+                <div id="loading" class="htmx-indicator overlay">
+                    <div>Loading...</div>
+                </div>
+                <div id="connection-error" class="htmx-indicator overlay">
+                    <div>Connection lost...</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

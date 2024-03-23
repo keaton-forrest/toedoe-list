@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/static/css/style.css" />
+        <script src="/static/js/htmx.js" defer></script>
+        <script src="/static/js/script.js" defer></script>
+        <title>ToeDoe</title>
+    </head>
+    <body>
+        <div id="view-frame">
+            <div id="toedoe-frame">
+                <div class="toedoe-heading">ToeDoe List</div>
+                <form
+                    class="controls"
+                    hx-post="/items/create"
+                    hx-target="#items"
+                    hx-swap="innerHTML"
+                    hx-indicator="#loading"
+                >
+                    <div class="form-control form-item">
+                        <input type="text" name="item" required />
+                    </div>
+                    <div class="form-control form-duedate">
+                        <input type="date" name="date" required />
+                    </div>
+                    <div class="form-control form-create">
+                        <button class="control-create" type="submit">+</button>
+                    </div>
+                </form>
+                <ul hx-get="/items" id="items" hx-trigger="load" hx-indicator="#loading">
+                    <!-- Items here are lazy loaded -->
+                </ul>
+                <div id="loading" class="htmx-indicator overlay">
+                    <div>Loading...</div>
+                </div>
+                <div id="connection-error" class="htmx-indicator overlay">
+                    <div>Connection lost...</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

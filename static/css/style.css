@@ -1,0 +1,242 @@
+/* style.css */
+
+/* CSS Overrides */
+
+html, body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+button {
+    display: inline;
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 4px;
+    background-color: grey;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+input {
+    padding: 0px 8px;
+    outline: none;
+    background-color: #F5F5F5;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3);
+    font-size: 14px;
+}
+
+/* Custom Styles */
+
+#view-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+#register-frame, #login-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    width: 50%;
+}
+
+#register-frame form, #login-frame form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    width: 100%;
+}
+
+#register-frame form > .form-control, #login-frame form > .form-control {
+    padding: 5px;
+}
+
+#register-frame form > .form-control > *, #login-frame form > .form-control > * {
+    height: 24px;
+}
+
+#toedoe-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    width: 50%;
+}
+
+.toedoe-heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: #C71585;
+    color: white;
+    border-radius: 10px;
+    height: 40px;
+    margin-bottom: 25px;
+}
+
+#toedoe-frame > .controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#toedoe-frame > .controls > .form-item {
+    width: 100%;
+    margin-right: 26px;
+}
+
+#toedoe-frame > .controls > .form-duedate {
+    margin-right: 26px;
+}
+
+#toedoe-frame > .controls > .form-control > input {
+    width: 100%;
+    height: 24px;
+    padding: 2px 8px;
+}
+
+#items {
+    width: 100%;
+}
+
+#items li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+#items li .item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F5F5F5;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3);
+    border-radius: 4px;
+    margin-right: 10px;
+    padding: 2px 8px;
+    height: 24px;
+    width: calc(100% - 50px);
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+#items li .item .item-name {
+    max-width: 83%;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+#items li .item-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#items li .item-form input[type="text"] {
+    width: 100%;
+    margin-right: 10px;
+}
+
+button.control-create, button.control-update, button.control-submit {
+    background-color: #66CDAA;
+}
+
+button.control-create:hover, button.control-update:hover, button.control-submit:hover {
+    background-color: #00FF7F;
+}
+
+button.control-delete {
+    background-color: #FF6347;
+}
+
+button.control-delete:hover {
+    background-color: #FF4500;
+}
+
+.overlay {
+    position: fixed;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.htmx-indicator {
+    display: none;
+    opacity: 0;
+    transition: opacity 333ms ease-in 1s; /* Apply transition with 1s delay */
+}
+
+.htmx-indicator > * {
+    /* Target all child elements */
+    opacity: 0; /* Start with them being fully transparent */
+    transition: inherit; /* Inherit transition from parent */
+}
+
+.htmx-request.htmx-indicator {
+    display: flex;
+    opacity: 1; /* Make the parent visible */
+}
+
+.htmx-request.htmx-indicator > * {
+    opacity: 1; /* Make children visible, inheriting the delay and transition */
+}
+
+
+/* Media Queries */
+
+
+/* For mobile phones and tablets: */
+@media only screen and (max-width: 768px) {
+    #register-frame, #login-frame, #toedoe-frame {
+        width: 100%;
+    }
+    .form-duedate {
+        width: 23px;
+    }
+}
+
+/* For medium screens: */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    #register-frame, #login-frame, #toedoe-frame {
+        width: 80%;
+    }
+}
